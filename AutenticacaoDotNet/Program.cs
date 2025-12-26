@@ -9,6 +9,13 @@ namespace AutenticacaoDotNet
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+            builder.Services.AddAuthentication("MeuCookieAuthenticacao")
+    .AddCookie("MeuCookieAuthenticacao", options =>
+    {
+        options.Cookie.Name = "MeuCookieAuthenticacao";
+        options.ExpireTimeSpan = TimeSpan.FromSeconds(200);
+    });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
