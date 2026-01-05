@@ -16,6 +16,19 @@ namespace AutenticacaoDotNet
         options.ExpireTimeSpan = TimeSpan.FromSeconds(200);
     });
 
+            builder.Services.AddAuthorization(options =>
+            {
+                //options.AddPolicy("AdminOnly", policy => policy.RequireClaim("Admin"));
+                //options.AddPolicy("MustBelongToHRDepartment", policy => policy.RequireClaim("Department", "HR"));
+                //options.AddPolicy("HRManagerOnly", policy => policy
+                //    .RequireClaim("Department", "HR")
+                //    .RequireClaim("Manager")
+                //    .Requirements.Add(new HRManagerProbationRequirement(3)));
+                options.AddPolicy("RH", policy =>
+                policy.RequireRole("RH"));
+            });
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

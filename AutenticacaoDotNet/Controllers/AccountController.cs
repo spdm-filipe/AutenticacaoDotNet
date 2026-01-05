@@ -1,4 +1,5 @@
-﻿using AutenticacaoDotNet.Models;
+﻿
+using AutenticacaoDotNet.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
@@ -34,9 +35,9 @@ namespace AutenticacaoDotNet.Controllers
                 var claims = new List<Claim> {
                     new Claim(ClaimTypes.Name, "admin"),
                     new Claim(ClaimTypes.Email, "admin@mywebsite.com"),
-                    new Claim("Department", "HR"),
-                    new Claim("Admin", "true"),
-                    new Claim("Manager", "true"),
+                    new Claim("RH", "HR"),
+                    new Claim("ManutencaoPredial", "true"),
+                    new Claim("Holerite", "true"),
                     new Claim("EmploymentDate", "2025-01-01")
                 };
                 var identity = new ClaimsIdentity(claims, "MeuCookieAuthenticacao");
