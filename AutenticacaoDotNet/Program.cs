@@ -14,6 +14,7 @@ namespace AutenticacaoDotNet
     {
         options.Cookie.Name = "MeuCookieAuthenticacao";
         options.ExpireTimeSpan = TimeSpan.FromSeconds(200);
+        options.LoginPath = "/Account/Login";
     });
 
             builder.Services.AddAuthorization(options =>
@@ -24,8 +25,8 @@ namespace AutenticacaoDotNet
                 //    .RequireClaim("Department", "HR")
                 //    .RequireClaim("Manager")
                 //    .Requirements.Add(new HRManagerProbationRequirement(3)));
-                options.AddPolicy("RH", policy =>
-                policy.RequireRole("RH"));
+                options.AddPolicy("RH", policy => policy.RequireRole("RH"));
+                //options.AddPolicy("AdminOnly", policy => policy.RequireClaim("Admin"));
             });
 
 
@@ -43,7 +44,7 @@ namespace AutenticacaoDotNet
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(

@@ -35,10 +35,12 @@ namespace AutenticacaoDotNet.Controllers
                 var claims = new List<Claim> {
                     new Claim(ClaimTypes.Name, "admin"),
                     new Claim(ClaimTypes.Email, "admin@mywebsite.com"),
-                    new Claim("RH", "HR"),
+                   // new Claim("RH", "RH"),
                     new Claim("ManutencaoPredial", "true"),
                     new Claim("Holerite", "true"),
-                    new Claim("EmploymentDate", "2025-01-01")
+                    new Claim("EmploymentDate", "2025-01-01"),
+                    new Claim(ClaimTypes.Role, "RH"),
+                    new Claim(ClaimTypes.Role, "Admin")
                 };
                 var identity = new ClaimsIdentity(claims, "MeuCookieAuthenticacao");
                 ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
