@@ -40,7 +40,7 @@ namespace AutenticacaoDotNet.Controllers
                     new Claim("Holerite", "true"),
                     new Claim("EmploymentDate", "2025-01-01"),
                     new Claim(ClaimTypes.Role, "RH"),
-                    new Claim(ClaimTypes.Role, "Admin")
+                    new Claim(ClaimTypes.Role, "Admin1")
                 };
                 var identity = new ClaimsIdentity(claims, "MeuCookieAuthenticacao");
                 ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);

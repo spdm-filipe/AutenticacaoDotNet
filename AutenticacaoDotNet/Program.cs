@@ -26,7 +26,7 @@ namespace AutenticacaoDotNet
                 //    .RequireClaim("Manager")
                 //    .Requirements.Add(new HRManagerProbationRequirement(3)));
                 options.AddPolicy("RH", policy => policy.RequireRole("RH"));
-                options.AddPolicy("Admin", policy => policy.RequireClaim("Admin"));
+                options.AddPolicy("Admin1", policy => policy.RequireRole("Admin1"));
             });
 
 
