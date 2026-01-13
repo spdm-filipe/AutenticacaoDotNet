@@ -14,7 +14,7 @@ namespace AutenticacaoDotNet
     {
         options.Cookie.Name = "MeuCookieAuthenticacao";
         options.ExpireTimeSpan = TimeSpan.FromSeconds(200);
-        options.LoginPath = "/Account/Login";
+      //  options.LoginPath = "/Account/Login";
     });
 
             builder.Services.AddAuthorization(options =>

@@ -15,10 +15,20 @@ namespace AutenticacaoDotNet.Controllers
             return View();
         }
 
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+
         public IActionResult Login()
         {
-
-
             return View(new Credencial());
         }
 
@@ -46,7 +56,7 @@ namespace AutenticacaoDotNet.Controllers
 
                 foreach (var acesso in acessos)
                 {
-                    claims.Add(new Claim(ClaimTypes.Role, acesso));
+                   claims.Add(new Claim(ClaimTypes.Role, acesso));
                 }
 
                 var identity = new ClaimsIdentity(claims, "MeuCookieAuthenticacao");
